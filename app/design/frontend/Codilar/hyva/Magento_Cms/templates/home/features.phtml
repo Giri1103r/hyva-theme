@@ -1,0 +1,30 @@
+<?php
+/** @var \Codilar\HomePage\Block\Home $block */
+
+$features = [
+    [
+        'title' => 'Easy returns',
+        'description' => "Changed your mind? Send it back hassle-free.",
+    ],
+    [
+        'title' => 'Secure payment',
+        'description' => 'Your payment details are always protected.',
+    ],
+    [
+        'title' => 'Support that cares',
+        'description' => 'We are here to help with every order.',
+    ],
+];
+?>
+<section class="border-t border-gray-100 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
+            <?php foreach ($features as $feature): ?>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900"><?= $block->escapeHtml($feature['title']) ?></h3>
+                    <p class="mt-1 text-sm text-gray-500"><?= $block->escapeHtml($feature['description']) ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+"Dependencies of framework:","Total number"
+,28
+
+"Dependencies for each module:",
+,28
+" -- Magento\Framework",63778
+" -- Magento\FunctionalTestingFramework",74
+" -- Magento\TestFramework",1057
+" -- Magento\theme",1
+" -- Magento\Setup",22
+" -- Magento\SomeModule",2
+" -- Magento\Importer",6
+" -- Magento\Test",3
+" -- Magento\SomeWidget",1
+" -- Magento\SharedCatalog",1
+" -- Magento\TestModule5",2
+" -- Magento\ElasticSearch",6
+" -- Magento\Usa",1
+" -- Magento\PayPal",2
+" -- Magento\ResourceConnections",3
+" -- Hyva\ThemeFallback",1
+" -- Magento\TestModuleDataSentOutside",3
+" -- Magento\ApplicationServer",2
+" -- Mollie\Analytics",2
+" -- Mollie\Api",137
+" -- Magento\Reward",1
+" -- Mollie\API",2
+" -- Magento\CustomerBalance",1
+" -- Magento\AdvancedCheckout",4
+" -- Magento\RequisitionList",3
+" -- Magento\AsyncOrder",6
+" -- Magento\VisualMerchandiser",8
+" -- Mollie\Subscriptions",2

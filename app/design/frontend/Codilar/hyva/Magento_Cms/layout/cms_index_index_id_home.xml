@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="cms_page" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Codilar\HomePage\Block\Home" name="codilar_home_hero"
+                   template="Magento_Cms::home/hero.phtml" before="-"/>
+
+            <block class="Codilar\HomePage\Block\Home" name="codilar_home_categories"
+                   template="Magento_Cms::home/categories.phtml" after="codilar_home_hero"/>
+
+            <container name="codilar_home_new_in_wrapper" as="codilar_home_new_in_wrapper"
+                       htmlTag="div" htmlId="codilar-new-in" after="codilar_home_categories">
+                <block class="Magento\CatalogWidget\Block\Product\ProductsList" name="codilar_home_new_in"
+                       template="Magento_CatalogWidget::product/widget/content/grid.phtml">
+                    <arguments>
+                        <argument name="title" xsi:type="string">New In</argument>
+                        <argument name="products_per_page" xsi:type="string">8</argument>
+                        <argument name="products_count" xsi:type="string">8</argument>
+                        <argument name="show_pager" xsi:type="string">0</argument>
+                        <argument name="conditions_encoded" xsi:type="string">^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^]^]</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <block class="Codilar\HomePage\Block\Home" name="codilar_home_features"
+                   template="Magento_Cms::home/features.phtml" after="codilar_home_new_in_wrapper"/>
+        </referenceContainer>
+    </body>
+</page>

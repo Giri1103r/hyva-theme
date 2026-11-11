@@ -1,0 +1,27 @@
+<?php
+/** @var \Codilar\HomePage\Block\Home $block */
+
+$categories = $block->getTopCategories();
+$tileColors = [
+    'bg-rose-50 hover:bg-rose-100',
+    'bg-amber-50 hover:bg-amber-100',
+    'bg-emerald-50 hover:bg-emerald-100',
+    'bg-sky-50 hover:bg-sky-100',
+    'bg-violet-50 hover:bg-violet-100',
+    'bg-stone-100 hover:bg-stone-200',
+];
+?>
+<?php if (!empty($categories)): ?>
+    <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-gray-900">Shop by category</h2>
+        <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <?php foreach (array_values($categories) as $index => $category): ?>
+                <a href="<?= $block->escapeUrl($block->getCategoryUrl($category)) ?>"
+                   class="flex items-center justify-between rounded-xl p-6 transition-colors <?= $tileColors[$index % count($tileColors)] ?>">
+                    <span class="text-base font-semibold text-gray-900"><?= $block->escapeHtml($category->getName()) ?></span>
+                    <span aria-hidden="true" class="text-gray-900">&rarr;</span>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </section>
+<?php endif; ?>

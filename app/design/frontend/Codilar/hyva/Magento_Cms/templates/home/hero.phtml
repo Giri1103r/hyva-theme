@@ -1,0 +1,47 @@
+<?php
+/** @var \Codilar\HomePage\Block\Home $block */
+
+$heroProducts = $block->getProductsByIds([1, 2, 3]);
+$categories = $block->getTopCategories();
+$primaryCategory = $categories[0] ?? null;
+?>
+<section class="bg-gradient-to-br from-rose-50 via-amber-50 to-emerald-50">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-rose-600">New Season</p>
+                <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                    Gear up, your way.
+                </h1>
+                <p class="mt-4 max-w-md text-base text-gray-600">
+                    Durable bags and packs built for everyday adventures &mdash; picked to help you find your
+                    next favourite in seconds.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <?php if ($primaryCategory): ?>
+                        <a href="<?= $block->escapeUrl($block->getCategoryUrl($primaryCategory)) ?>"
+                           class="inline-flex items-center justify-center rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white hover:bg-gray-700">
+                            Shop the edit
+                        </a>
+                    <?php endif; ?>
+                    <a href="#codilar-new-in"
+                       class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50">
+                        View New In
+                    </a>
+                </div>
+            </div>
+
+            <?php if (!empty($heroProducts)): ?>
+                <div class="grid h-80 grid-cols-2 grid-rows-2 gap-4 sm:h-96">
+                    <?php foreach ($heroProducts as $index => $product): ?>
+                        <div class="overflow-hidden rounded-2xl bg-white shadow-sm <?= $index === 0 ? 'row-span-2' : '' ?>">
+                            <img src="<?= $block->escapeUrl($block->getProductImageUrl($product)) ?>"
+                                 alt="<?= $block->escapeHtmlAttr($product->getName()) ?>"
+                                 class="h-full w-full object-cover" />
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
